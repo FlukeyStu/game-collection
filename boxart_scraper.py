@@ -2,6 +2,9 @@ import urllib2
 import mechanize
 import shutil
 
+#TODO:
+#   Get Label image instead of UGC image
+
 def get_html(url):
     try:
         br = mechanize.Browser()
@@ -45,7 +48,7 @@ def scrape(title):
                         print 'Finding Image Link...'
                         fileurl = urlpre + suff
                         req = urllib2.urlopen(fileurl)
-                        file_name = title.replace(":","") + '.jpg'
+                        file_name = "BOXART_" + title.replace(":","") + '.jpg'
                         print 'Saving File ' + file_name
                         with open(file_name, 'wb') as fp:
                             shutil.copyfileobj(req, fp)
